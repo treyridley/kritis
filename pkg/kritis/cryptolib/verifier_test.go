@@ -115,6 +115,13 @@ func TestNewPublicKey(t *testing.T) {
 			expectedErr:        true,
 		},
 		{
+			name:               "valid PKIX key with invalid singature algorithm",
+			keyType:            Pkix,
+			signatureAlgorithm: UndefinedSigningAlgorithm,
+			keyID:              "valid-key-id",
+			expectedErr:        true,
+		},
+		{
 			name:               "unknown key type",
 			keyType:            UnknownKeyType,
 			signatureAlgorithm: UndefinedSigningAlgorithm,

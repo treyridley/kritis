@@ -73,6 +73,9 @@ func NewPublicKey(keyType KeyType, signatureAlgorithm SignatureAlgorithm, keyDat
 			return nil, err
 		}
 		newKeyID = id
+		if signatureAlgorithm == UndefinedSigningAlgorithm {
+			return nil, errors.New("expected signature algorithm for JWT and PKIX")
+		}
 	default:
 		return nil, fmt.Errorf("invalid key type")
 	}
