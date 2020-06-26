@@ -58,7 +58,7 @@ type PublicKey struct {
 // fingerprint of the key. For PKIX and JWT, this may be left blank, and the ID
 // will be generated based on the DER encoding of the key. If not blank, the ID
 // should be a StringOrURI: it must either not contain ":" or be a valid URI.
-func NewPublicKey(keyType KeyType, keyData []byte, keyID string) (*PublicKey, error) {
+func NewPublicKey(keyType KeyType, signatureAlgorithm SignatureAlgorithm, keyData []byte, keyID string) (*PublicKey, error) {
 	newKeyID := ""
 	switch keyType {
 	case Pgp:
@@ -78,9 +78,10 @@ func NewPublicKey(keyType KeyType, keyData []byte, keyID string) (*PublicKey, er
 	}
 
 	return &PublicKey{
-		KeyType: keyType,
-		KeyData: keyData,
-		ID:      newKeyID,
+		KeyType:            keyType,
+		SignatureAlgorithm: signatureAlgorithm,
+		KeyData:            keyData,
+		ID:                 newKeyID,
 	}, nil
 }
 
