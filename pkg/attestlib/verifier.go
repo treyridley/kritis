@@ -14,18 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cryptolib
+package attestlib
 
 import (
-	"bytes"
 	"fmt"
-	"net/url"
-	"strings"
 
 	"github.com/golang/glog"
 	"github.com/google/go-containerregistry/pkg/name"
 	"github.com/pkg/errors"
-	"golang.org/x/crypto/openpgp"
 )
 
 // Verifier contains methods to validate an Attestation.
@@ -37,6 +33,7 @@ type Verifier interface {
 	VerifyAttestation(att *Attestation) error
 }
 
+<<<<<<< HEAD:pkg/kritis/cryptolib/verifier.go
 // PublicKey stores public key material for all key types.
 type PublicKey struct {
 	// KeyType stores the type of the public key, one of Pgp, Pkix, or Jwt.
@@ -111,6 +108,8 @@ func extractPkixKeyID(keyData []byte, keyID string) (string, error) {
 	return keyID, nil
 }
 
+=======
+>>>>>>> 9db705074e0a770a59bf45e73b664e2971c41372:pkg/attestlib/verifier.go
 type pkixVerifier interface {
 	verifyPkix(signature []byte, payload []byte, publicKey []byte) error
 }
@@ -190,7 +189,7 @@ func (v *verifier) VerifyAttestation(att *Attestation) error {
 
 	var err error
 	payload := []byte{}
-	switch publicKey.KeyType {
+	switch publicKey.AuthenticatorType {
 	case Pkix:
 		err = v.verifyPkix(att.Signature, att.SerializedPayload, publicKey.KeyData)
 		payload = att.SerializedPayload

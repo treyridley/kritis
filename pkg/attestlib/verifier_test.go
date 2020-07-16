@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cryptolib
+package attestlib
 
 import (
 	"testing"
@@ -73,6 +73,7 @@ const verifierPublicKeyID = "446625EB36036D7546B2D63B77B4BE6989834233"
 
 func TestNewPublicKey(t *testing.T) {
 	tcs := []struct {
+<<<<<<< HEAD:pkg/kritis/cryptolib/verifier_test.go
 		name               string
 		keyType            KeyType
 		signatureAlgorithm SignatureAlgorithm
@@ -126,11 +127,57 @@ func TestNewPublicKey(t *testing.T) {
 			keyType:            UnknownKeyType,
 			signatureAlgorithm: UndefinedSigningAlgorithm,
 			expectedErr:        true,
+=======
+		name              string
+		authenticatorType AuthenticatorType
+		keyData           []byte
+		keyID             string
+		expectedErr       bool
+		expectedID        string
+	}{
+		{
+			name:              "valid PGP key ID",
+			authenticatorType: Pgp,
+			keyData:           []byte(verifierPublicKey),
+			keyID:             verifierPublicKeyID,
+			expectedErr:       false,
+			expectedID:        verifierPublicKeyID,
+		},
+		{
+			name:              "incorrect PGP key ID",
+			authenticatorType: Pgp,
+			keyData:           []byte(verifierPublicKey),
+			keyID:             "incorrect-id",
+			expectedErr:       false,
+			expectedID:        verifierPublicKeyID,
+		},
+		{
+			name:              "valid PKIX key ID",
+			authenticatorType: Pkix,
+			keyID:             "valid-key-id",
+			expectedErr:       false,
+			expectedID:        "valid-key-id",
+		},
+		{
+			name:              "invalid PKIX key ID",
+			authenticatorType: Pkix,
+			keyID:             ":{invalid-key-id}",
+			expectedErr:       true,
+		},
+		{
+			name:              "unknown authenticator type",
+			authenticatorType: UnknownAuthenticatorType,
+			expectedErr:       true,
+>>>>>>> 9db705074e0a770a59bf45e73b664e2971c41372:pkg/attestlib/verifier_test.go
 		},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
+<<<<<<< HEAD:pkg/kritis/cryptolib/verifier_test.go
 			publicKey, err := NewPublicKey(tc.keyType, tc.signatureAlgorithm, tc.keyData, tc.keyID)
+=======
+			publicKey, err := NewPublicKey(tc.authenticatorType, tc.keyData, tc.keyID)
+>>>>>>> 9db705074e0a770a59bf45e73b664e2971c41372:pkg/attestlib/verifier_test.go
 			if tc.expectedErr {
 				if err == nil {
 					t.Errorf("Got nil err, expected not-nil")
