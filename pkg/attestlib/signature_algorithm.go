@@ -22,8 +22,7 @@ type SignatureAlgorithm int
 
 // Enumeration of SignatureAlgorithm
 const (
-	// Valid for PGP KeyType
-	UndefinedSigningAlgorithm SignatureAlgorithm = iota
+	UnknownSigningAlgorithm SignatureAlgorithm = iota
 	// RSASSA-PSS 2048 bit key with a SHA256 digest.
 	RsaPss2048Sha256
 	// RSASSA-PSS 3072 bit key with a SHA256 digest.
@@ -48,6 +47,8 @@ const (
 	EcdsaP384Sha384
 	// ECDSA on the NIST P-521 curve with a SHA512 digest.
 	EcdsaP521Sha512
+	// Valid for PGP KeyType
+	PGPUnused
 )
 
 // AuthenticatorType specifies the transport format of the Attestation. It

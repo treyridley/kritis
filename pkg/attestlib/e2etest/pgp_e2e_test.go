@@ -262,11 +262,7 @@ func TestEndToEndWithAttestations(t *testing.T) {
 			t.Fatalf("Error creating attestation: %v", err)
 		}
 
-<<<<<<< HEAD:pkg/kritis/cryptolib/e2etest/pgp_e2e_test.go
-		publicKey, err := cryptolib.NewPublicKey(cryptolib.Pgp, cryptolib.UndefinedSigningAlgorithm, tc.publicKey, tc.keyID)
-=======
-		publicKey, err := attestlib.NewPublicKey(attestlib.Pgp, tc.publicKey, tc.keyID)
->>>>>>> 9db705074e0a770a59bf45e73b664e2971c41372:pkg/attestlib/e2etest/pgp_e2e_test.go
+		publicKey, err := attestlib.NewPublicKey(attestlib.Pgp, attestlib.PGPUnused, tc.publicKey, tc.keyID)
 		if err != nil {
 			t.Fatalf("Error creating public key: %v", err)
 		}

@@ -14,7 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+<<<<<<< HEAD
 package cryptolib
+=======
+package attestlib
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 
 import (
 	"encoding/base64"
@@ -123,7 +127,11 @@ func TestVerifyDetached(t *testing.T) {
 
 	tcs := []struct {
 		name          string
+<<<<<<< HEAD
 		signature     []byte
+=======
+		signature     string
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 		pubkey        []byte
 		signingAlg    SignatureAlgorithm
 		payload       []byte
@@ -131,7 +139,11 @@ func TestVerifyDetached(t *testing.T) {
 	}{
 		{
 			name:          "good RsaSignPkcs12048Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa2048_256Sig),
+=======
+			signature:     rsa2048_256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa2048PubKey),
 			signingAlg:    RsaSignPkcs12048Sha256,
 			payload:       []byte(goodPayload),
@@ -139,7 +151,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaSignPkcs13072Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa3072_256Sig),
+=======
+			signature:     rsa3072_256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa3072PubKey),
 			signingAlg:    RsaSignPkcs13072Sha256,
 			payload:       []byte(goodPayload),
@@ -147,7 +163,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaSignPkcs14096Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa4096_256Sig),
+=======
+			signature:     rsa4096_256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa4096PubKey),
 			signingAlg:    RsaSignPkcs14096Sha256,
 			payload:       []byte(goodPayload),
@@ -155,7 +175,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaSignPkcs14096Sha512 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa4096_512Sig),
+=======
+			signature:     rsa4096_512Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa4096PubKey),
 			signingAlg:    RsaSignPkcs14096Sha512,
 			payload:       []byte(goodPayload),
@@ -163,7 +187,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaPss2048Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa2048_256PssSig),
+=======
+			signature:     rsa2048_256PssSig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa2048PubKey),
 			signingAlg:    RsaPss2048Sha256,
 			payload:       []byte(goodPayload),
@@ -171,7 +199,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaPss3072Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa3072_256PssSig),
+=======
+			signature:     rsa3072_256PssSig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa3072PubKey),
 			signingAlg:    RsaPss3072Sha256,
 			payload:       []byte(goodPayload),
@@ -179,7 +211,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaPss4096Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa4096_256PssSig),
+=======
+			signature:     rsa4096_256PssSig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa4096PubKey),
 			signingAlg:    RsaPss4096Sha256,
 			payload:       []byte(goodPayload),
@@ -187,7 +223,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good RsaPss4096Sha512 signature",
+<<<<<<< HEAD
 			signature:     []byte(rsa4096_512PssSig),
+=======
+			signature:     rsa4096_512PssSig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(rsa4096PubKey),
 			signingAlg:    RsaPss4096Sha512,
 			payload:       []byte(goodPayload),
@@ -195,7 +235,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good EcdsaP256Sha256 signature",
+<<<<<<< HEAD
 			signature:     []byte(ec256Sig),
+=======
+			signature:     ec256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(ec256PubKey),
 			signingAlg:    EcdsaP256Sha256,
 			payload:       []byte(goodPayload),
@@ -203,7 +247,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good EcdsaP384Sha384 signature",
+<<<<<<< HEAD
 			signature:     []byte(ec384Sig),
+=======
+			signature:     ec384Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(ec384PubKey),
 			signingAlg:    EcdsaP384Sha384,
 			payload:       []byte(goodPayload),
@@ -211,7 +259,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "good EcdsaP521Sha512 signature",
+<<<<<<< HEAD
 			signature:     []byte(ec521Sig),
+=======
+			signature:     ec521Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(ec521PubKey),
 			signingAlg:    EcdsaP521Sha512,
 			payload:       []byte(goodPayload),
@@ -219,7 +271,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "bad pub key",
+<<<<<<< HEAD
 			signature:     []byte(rsa2048_256Sig),
+=======
+			signature:     rsa2048_256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(badKey),
 			signingAlg:    RsaSignPkcs12048Sha256,
 			payload:       []byte(goodPayload),
@@ -227,7 +283,11 @@ func TestVerifyDetached(t *testing.T) {
 		},
 		{
 			name:          "pub key with extra data",
+<<<<<<< HEAD
 			signature:     []byte(rsa2048_256Sig),
+=======
+			signature:     rsa2048_256Sig,
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			pubkey:        []byte(extraDataKey),
 			signingAlg:    RsaSignPkcs12048Sha256,
 			payload:       []byte(goodPayload),
@@ -237,18 +297,30 @@ func TestVerifyDetached(t *testing.T) {
 
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
+<<<<<<< HEAD
 			decoded_sig, decodeErr := base64.RawURLEncoding.DecodeString(string(tc.signature))
 			if decodeErr != nil {
 				t.Fatalf("error base64 decoding signature: %e", decodeErr)
 			}
 			err := verifyDetached(decoded_sig, tc.pubkey, tc.signingAlg, tc.payload)
+=======
+			decodedSig, decodeErr := base64.RawURLEncoding.DecodeString(tc.signature)
+			if decodeErr != nil {
+				t.Fatalf("error base64 decoding signature: %v", decodeErr)
+			}
+			err := verifyDetached(decodedSig, tc.pubkey, tc.signingAlg, tc.payload)
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 			if tc.expectedError {
 				if err == nil {
 					t.Errorf("verifyDetached(...)=nil, expected non-nil")
 				}
 			} else {
 				if err != nil {
+<<<<<<< HEAD
 					t.Errorf("verifyDetached(...)=%e, expected nil", err)
+=======
+					t.Errorf("verifyDetached(...)=%v, expected nil", err)
+>>>>>>> e8604937885c406b2e37a1fa61424ca90493b6dc
 				}
 			}
 		})
