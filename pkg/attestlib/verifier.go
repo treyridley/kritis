@@ -37,6 +37,14 @@ type pkixVerifier interface {
 	verifyPkix(signature []byte, payload []byte, publicKey []byte) error
 }
 
+type pgpVerifier interface {
+	verifyPgp(signature, publicKey []byte) ([]byte, error)
+}
+
+type jwtVerifier interface {
+	verifyJwt(signature []byte, publicKey PublicKey) ([]byte, error)
+}
+
 type convertFunc func(payload []byte) (*authenticatedAttestation, error)
 
 type authenticatedAttChecker interface {

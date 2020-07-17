@@ -110,7 +110,7 @@ func TestNewPublicKey(t *testing.T) {
 		{
 			name:               "valid PKIX key ID with undefined signature algorithm",
 			authenticatorType:  Pkix,
-			signatureAlgorithm: UnKnownSigningAlgorithm,
+			signatureAlgorithm: UnknownSigningAlgorithm,
 			keyID:              "valid-key-id",
 			expectedErr:        false,
 			expectedID:         "valid-key-id",

@@ -68,7 +68,7 @@ func NewPublicKey(authenticatorType AuthenticatorType, signatureAlgorithm Signat
 			return nil, err
 		}
 		newKeyID = id
-		if signatureAlgorithm == UndefinedSigningAlgorithm {
+		if signatureAlgorithm == PGPUnused {
 			return nil, fmt.Errorf("expected signature algorithm with JWT/PKIX key type")
 		}
 	default:
